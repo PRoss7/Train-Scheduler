@@ -1,0 +1,52 @@
+.addTrain {
+    margin-top: 30px;
+}
+
+.addHeader, .currentHeader {
+    background-color: #337AB7;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.jumbotron {
+    background: url('../train.jpg');
+    background-size: 100% 100%;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 99px;
+    opacity: .8;
+    font-weight: bold;
+    
+}
+
+h3 {
+    position: relative;
+    top: 40px;
+    left: 46%;
+    background-color: rgba(0, 0, 0, .5) ;
+    border-radius: 20px;
+    width: 250px;
+    padding: 5px;
+}
+
+.addTrain, .currentTrain {
+    border: 2px solid #337AB7;
+}
+
+.trainBlock {
+    padding: 20px;
+}
+
+label {
+    font-weight: bold;
+    
+}
+
+.btn {
+    background-color: #337AB7;
+    margin-top: 20px;
+}
