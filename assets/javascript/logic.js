@@ -18,7 +18,7 @@ var config = {
     // Grabs user input
     var trainName = $("#name").val().trim();
     var trainDest = $("#dest").val().trim();
-    var firstTrain = $("#first").val().trim();
+    var firstTrain = moment($("#first").val().trim(), "HH:mm a").format("X");
     var trainFreq = $("#freq").val().trim() ;
 
     // Creates local temporary object for holding train data
@@ -59,21 +59,20 @@ var config = {
     // Train Info
     console.log("Name: " + trainName);
     console.log("Destination: " + trainDest);
-    console.log(firstTrain);
-    console.log(trainFreq);
+    console.log("First Train: " + firstTrain);
+    console.log("Train Frequency: " + trainFreq);
 
     var frequency = trainFreq;    
 
-    // Current Time
-    var currentTime = moment();
-    console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+    var firstTime = "07:00"; 
     
-    var firstTime = currentTime;
-
     var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
     console.log(firstTimeConverted);
 
-    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    var currentTime = moment();
+    console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+    
+    var diffTime = moment().diff(moment(firstTimeConverted), "hours");
     console.log("Difference: " + diffTime);
 
     var timeRemainer = diffTime % frequency;
@@ -86,7 +85,7 @@ var config = {
     console.log("Arrival Time: " + moment(nextArrival).format("hh:mm"));
 
     $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" +
-    trainFreq + "</td><td>" + nextArrival.format("hh:mm") + "PM" + "</td><td>" + minTillTrain + "</td></tr>");
+    trainFreq + "</td><td>" + nextArrival.format("hh:mm a") + "</td><td>" + minTillTrain + "</td></tr>");
     
 
   });
